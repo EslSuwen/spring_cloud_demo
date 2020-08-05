@@ -37,7 +37,7 @@ import java.util.List;
 @EnableResourceServer
 @SpringBootApplication
 @EnableJpaRepositories({"com.cd826dong.**.repository"})
-public class Application {
+public class JwtProductServiceApplication {
 
     @Bean
     @Primary
@@ -54,6 +54,6 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(JwtProductServiceApplication.class, args);
     }
 }

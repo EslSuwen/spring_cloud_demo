@@ -28,10 +28,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableDiscoveryClient
 @EnableResourceServer
 @SpringBootApplication
-public class Application {
+public class JwtUserServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(JwtUserServiceApplication.class, args);
     }
 
 }
