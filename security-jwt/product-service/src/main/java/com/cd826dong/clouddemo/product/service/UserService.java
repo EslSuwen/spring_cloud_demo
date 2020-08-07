@@ -17,7 +17,6 @@ import com.cd826dong.clouddemo.product.api.UserDto;
 
 import java.util.List;
 
-
 /**
  * 用户服务，使用Feign实现
  *
@@ -25,7 +24,7 @@ import java.util.List;
  * @since 1.0.0
  */
 public interface UserService {
-    List<UserDto> findAll();
+  List<UserDto> findAll();
 
-    UserDto load(Long id);
+  UserDto load(Long id);
 }

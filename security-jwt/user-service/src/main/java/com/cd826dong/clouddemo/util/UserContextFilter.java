@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.util;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,32 +29,30 @@ import java.io.IOException;
  */
 @Component
 public class UserContextFilter implements Filter {
-    protected Logger logger = LoggerFactory.getLogger(this.getClass());
+  protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {}
 
-    }
+  @Override
+  public void doFilter(
+      ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+      throws IOException, ServletException {
 
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
-            throws IOException, ServletException {
+    HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+    String userId = httpServletRequest.getHeader(UserContext.USER_ID);
+    String authToken = httpServletRequest.getHeader(UserContext.AUTH_TOKEN);
+    String shopId = httpServletRequest.getHeader(UserContext.SHOP_ID);
 
-        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        String userId = httpServletRequest.getHeader(UserContext.USER_ID);
-        String authToken = httpServletRequest.getHeader(UserContext.AUTH_TOKEN);
-        String shopId = httpServletRequest.getHeader(UserContext.SHOP_ID);
+    UserContext.setUserId(userId);
+    UserContext.setAuthToken(authToken);
+    UserContext.setShopId(shopId);
 
-        UserContext.setUserId(userId);
-        UserContext.setAuthToken(authToken);
-        UserContext.setShopId(shopId);
+    this.logger.debug(
+        "Current user.id = {}, shop.id = {}", UserContext.getUserId(), UserContext.getShopId());
+    filterChain.doFilter(httpServletRequest, servletResponse);
+  }
 
-        this.logger.debug("Current user.id = {}, shop.id = {}", UserContext.getUserId(), UserContext.getShopId());
-        filterChain.doFilter(httpServletRequest, servletResponse);
-    }
-
-    @Override
-    public void destroy() {
-
-    }
+  @Override
+  public void destroy() {}
 }

@@ -21,7 +21,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-
 /**
  * 用户服务，使用Feign实现
  *
@@ -30,17 +29,19 @@ import java.util.List;
  */
 @Component
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private RestTemplate restTemplate;
+  @Autowired private RestTemplate restTemplate;
 
-    @Override
-    public List<UserDto> findAll() {
-        return null;
-    }
+  @Override
+  public List<UserDto> findAll() {
+    return null;
+  }
 
-    @Override
-    public UserDto load(Long id) {
-        UserDto userDto = this.restTemplate.getForEntity("http://localhost:8280/userservice/users/{id}", UserDto.class, id).getBody();
-        return userDto;
-    }
+  @Override
+  public UserDto load(Long id) {
+    UserDto userDto =
+        this.restTemplate
+            .getForEntity("http://localhost:8280/userservice/users/{id}", UserDto.class, id)
+            .getBody();
+    return userDto;
+  }
 }

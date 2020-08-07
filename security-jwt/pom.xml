@@ -11,11 +11,11 @@
         <relativePath>parent</relativePath>
     </parent>
 
-	<artifactId>cd826dong-clouds-security</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringCloud Demo Projects -- Security(JWT)</name>
-	<packaging>pom</packaging>
-    
+    <artifactId>cd826dong-clouds-security</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>SpringCloud Demo Projects -- Security(JWT)</name>
+    <packaging>pom</packaging>
+
     <modules>
         <module>parent</module>
         <module>service-discovery</module>
@@ -23,6 +23,6 @@
         <module>auth-server</module>
 
         <module>user-service</module>
-        <module>product-service</module>        
-    </modules>    
+        <module>product-service</module>
+    </modules>
 </project>

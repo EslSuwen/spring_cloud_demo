@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.user.repository;
 
-
 import com.cd826dong.clouddemo.user.entity.User;
 
 import java.util.List;
@@ -25,5 +24,5 @@ import java.util.List;
  * @since 1.0.0
  */
 public interface UserRepositoryEx {
-    List<User> findTopUser(int maxResult);
+  List<User> findTopUser(int maxResult);
 }

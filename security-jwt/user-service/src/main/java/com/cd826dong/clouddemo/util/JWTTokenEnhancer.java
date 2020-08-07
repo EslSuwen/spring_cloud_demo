@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.util;
 
-
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -29,11 +28,12 @@ import java.util.Map;
  * @since 1.0.0
  */
 public class JWTTokenEnhancer implements TokenEnhancer {
-    @Override
-    public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
-        Map<String, Object> additionalInfo = new HashMap<>();
-        additionalInfo.put("shopId", "cd826");
-        ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
-        return accessToken;
-    }
+  @Override
+  public OAuth2AccessToken enhance(
+      OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+    Map<String, Object> additionalInfo = new HashMap<>();
+    additionalInfo.put("shopId", "cd826");
+    ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
+    return accessToken;
+  }
 }

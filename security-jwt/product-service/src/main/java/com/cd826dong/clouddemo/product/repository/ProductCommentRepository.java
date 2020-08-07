@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.product.repository;
 
-
 import com.cd826dong.clouddemo.product.entity.ProductComment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -26,5 +25,5 @@ import java.util.List;
  * @since 1.0.0
  */
 public interface ProductCommentRepository extends JpaRepository<ProductComment, Long> {
-    List<ProductComment> findByProductIdOrderByCreated(Long productId);
+  List<ProductComment> findByProductIdOrderByCreated(Long productId);
 }

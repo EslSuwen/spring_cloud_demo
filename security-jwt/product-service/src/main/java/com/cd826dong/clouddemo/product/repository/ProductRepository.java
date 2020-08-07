@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.product.repository;
 
-
 import com.cd826dong.clouddemo.product.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -23,6 +22,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author CD826
  * @since 1.0.0
  */
-public interface ProductRepository extends JpaRepository<Product, Long> {
-
-}
+public interface ProductRepository extends JpaRepository<Product, Long> {}

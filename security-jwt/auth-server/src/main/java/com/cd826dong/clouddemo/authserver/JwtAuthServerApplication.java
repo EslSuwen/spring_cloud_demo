@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.authserver;
 
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -37,15 +36,19 @@ import java.util.Map;
 @EnableResourceServer
 @EnableAuthorizationServer
 public class JwtAuthServerApplication {
-    @RequestMapping(value = { "/user" }, produces = "application/json")
-    public Map<String, Object> user(OAuth2Authentication user) {
-        Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("user", user.getUserAuthentication().getPrincipal());
-        userInfo.put("authorities", AuthorityUtils.authorityListToSet( user.getUserAuthentication().getAuthorities()));
-        return userInfo;
-    }
+  @RequestMapping(
+      value = {"/user"},
+      produces = "application/json")
+  public Map<String, Object> user(OAuth2Authentication user) {
+    Map<String, Object> userInfo = new HashMap<>();
+    userInfo.put("user", user.getUserAuthentication().getPrincipal());
+    userInfo.put(
+        "authorities",
+        AuthorityUtils.authorityListToSet(user.getUserAuthentication().getAuthorities()));
+    return userInfo;
+  }
 
-    public static void main(String[] args) {
-        new SpringApplicationBuilder(JwtAuthServerApplication.class).web(true).run(args);
-    }
+  public static void main(String[] args) {
+    new SpringApplicationBuilder(JwtAuthServerApplication.class).web(true).run(args);
+  }
 }

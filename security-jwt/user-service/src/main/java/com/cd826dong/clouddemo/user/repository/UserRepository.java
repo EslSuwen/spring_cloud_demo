@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo.user.repository;
 
-
 import com.cd826dong.clouddemo.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -23,6 +22,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author CD826
  * @since 1.0.0
  */
-public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryEx {
-
-}
+public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryEx {}

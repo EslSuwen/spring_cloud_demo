@@ -13,7 +13,6 @@
  */
 package com.cd826dong.clouddemo;
 
-
 import com.cd826dong.clouddemo.util.JWTOAuthTokenInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,21 +38,21 @@ import java.util.List;
 @EnableJpaRepositories({"com.cd826dong.**.repository"})
 public class JwtProductServiceApplication {
 
-    @Bean
-    @Primary
-    public RestTemplate getCustomRestTemplate() {
-        RestTemplate template = new RestTemplate();
-        List interceptors = template.getInterceptors();
-        if (interceptors == null) {
-            template.setInterceptors(Collections.singletonList(new JWTOAuthTokenInterceptor()));
-        } else {
-            interceptors.add(new JWTOAuthTokenInterceptor());
-            template.setInterceptors(interceptors);
-        }
-        return template;
+  @Bean
+  @Primary
+  public RestTemplate getCustomRestTemplate() {
+    RestTemplate template = new RestTemplate();
+    List interceptors = template.getInterceptors();
+    if (interceptors == null) {
+      template.setInterceptors(Collections.singletonList(new JWTOAuthTokenInterceptor()));
+    } else {
+      interceptors.add(new JWTOAuthTokenInterceptor());
+      template.setInterceptors(interceptors);
     }
+    return template;
+  }
 
-    public static void main(String[] args) {
-        SpringApplication.run(JwtProductServiceApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(JwtProductServiceApplication.class, args);
+  }
 }

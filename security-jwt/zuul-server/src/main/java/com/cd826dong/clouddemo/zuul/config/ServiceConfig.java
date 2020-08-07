@@ -26,10 +26,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration
 public class ServiceConfig {
-    @Value("${jwt.signing.key}")
-    private String jwtSigningKey="";
+  @Value("${jwt.signing.key}")
+  private String jwtSigningKey = "";
 
-    public String getJwtSigningKey() {
-        return jwtSigningKey;
-    }
+  public String getJwtSigningKey() {
+    return jwtSigningKey;
+  }
 }

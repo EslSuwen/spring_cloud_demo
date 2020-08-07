@@ -22,7 +22,6 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
-
 /**
  * 商品评论信息定义
  *
@@ -32,63 +31,64 @@ import java.util.Date;
 @Entity
 @Table(name = "tbProduct_Comment")
 public class ProductComment implements Serializable {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    // ========================================================================
-    // fields =================================================================
-    @Id
-    @GeneratedValue
-    private Long id;
-    private Long productId;                                     // 所属产品Id
-    private Long authorId;                                      // 评论作者Id
-    private String content;                                     // 评论内容
-    private Date created;                                       // 创建时间
+  // ========================================================================
+  // fields =================================================================
+  @Id @GeneratedValue private Long id;
+  private Long productId; // 所属产品Id
+  private Long authorId; // 评论作者Id
+  private String content; // 评论内容
+  private Date created; // 创建时间
 
-    @Override
-    public String toString() {
-        return this.toStringHelper().toString();
-    }
+  @Override
+  public String toString() {
+    return this.toStringHelper().toString();
+  }
 
-    protected MoreObjects.ToStringHelper toStringHelper() {
-        return MoreObjects.toStringHelper(this)
-                .add("id", getId())
-                .add("productId", getProductId());
-    }
+  protected MoreObjects.ToStringHelper toStringHelper() {
+    return MoreObjects.toStringHelper(this).add("id", getId()).add("productId", getProductId());
+  }
 
-    // ========================================================================
-    // setter/getter ==========================================================
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+  // ========================================================================
+  // setter/getter ==========================================================
+  public Long getId() {
+    return id;
+  }
 
-    public Long getProductId() {
-        return productId;
-    }
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getAuthorId() {
-        return authorId;
-    }
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
-    }
+  public Long getProductId() {
+    return productId;
+  }
 
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setProductId(Long productId) {
+    this.productId = productId;
+  }
 
-    public Date getCreated() {
-        return created;
-    }
-    public void setCreated(Date created) {
-        this.created = created;
-    }
+  public Long getAuthorId() {
+    return authorId;
+  }
+
+  public void setAuthorId(Long authorId) {
+    this.authorId = authorId;
+  }
+
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Date getCreated() {
+    return created;
+  }
+
+  public void setCreated(Date created) {
+    this.created = created;
+  }
 }
